@@ -9,6 +9,7 @@ class The < Formula
 
   def install
     system "./configure", "--with-rexx=regina",
+                          "--with-ncurses",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

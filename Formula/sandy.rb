@@ -1,9 +1,11 @@
 class Sandy < Formula
   desc "sandy is an ncurses text editor with an easy-to-read, hackable C source"
   homepage "http://tools.suckless.org/sandy"
-  url "http://git.suckless.org/sandy/snapshot/sandy-0.4.tar.gz"
-  version "0.4"
-  sha256 "63db19c0f6256145794530914e152a7933cae99a92b06d2bc895ea096c5279c4"
+  # Hmm... their archive changes
+  # url "http://git.suckless.org/sandy/snapshot/sandy-0.4.tar.gz"
+  # sha256 "63db19c0f6256145794530914e152a7933cae99a92b06d2bc895ea096c5279c4"
+  # version "0.4"
+  head "git://git.suckless.org/sandy", :tag => "0.4"
 
   # depends_on "cmake" => :build
   depends_on "ncurses"
@@ -21,7 +23,7 @@ class Sandy < Formula
   end
 end
 __END__
-diff --git a/sandy-0.4/config.mk b/sandy-0.4/config.mk
+diff --git a/config.mk b/config.mk
 index da0f9bc..7b999f2 100644
 --- a/config.mk
 +++ b/config.mk

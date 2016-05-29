@@ -1,11 +1,11 @@
 class Sandy < Formula
   desc "sandy is an ncurses text editor with an easy-to-read, hackable C source"
   homepage "http://tools.suckless.org/sandy"
-  # Hmm... their archive changes
-  # url "http://git.suckless.org/sandy/snapshot/sandy-0.4.tar.gz"
-  # sha256 "63db19c0f6256145794530914e152a7933cae99a92b06d2bc895ea096c5279c4"
-  # version "0.4"
-  head "git://git.suckless.org/sandy", :tag => "0.4"
+  # Hmm... their .tar.gz archive changes
+  url "http://git.suckless.org/sandy/snapshot/sandy-0.4.zip"
+  sha256 "f20ea90b2b14201d0893fc4a307361113258a7a64b9b79b807b1b229f21c80e3"
+  version "0.4"
+  # head "git://git.suckless.org/sandy", :tag => "0.4"
 
   # depends_on "cmake" => :build
   depends_on "ncurses"

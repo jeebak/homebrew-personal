@@ -10,29 +10,11 @@ class Sandy < Formula
   # depends_on "cmake" => :build
   depends_on "ncurses"
 
-  patch :DATA
-
   def install
-    # This didn't work, so used the patch above:
-    # system "PREFIX=#{prefix} LDFLAGS=-L/usr/local/opt/ncurses/lib CPPFLAGS=-I/usr/local/opt/ncurses/include make install"
-    system "make install"
+    system "make install PREFIX=#{prefix}"
   end
 
   test do
     system "false"
   end
 end
-__END__
-diff --git a/config.mk b/config.mk
-index da0f9bc..7b999f2 100644
---- a/config.mk
-+++ b/config.mk
-@@ -4,7 +4,7 @@ VERSION = 0.4
- # Customize below to fit your system
- 
- # paths
--PREFIX = /usr/local
-+PREFIX = /usr/local/Cellar/sandy/0.4
- MANPREFIX = ${PREFIX}/share/man
- 
- # includes and libs (ncurses)

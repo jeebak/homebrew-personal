@@ -1,18 +1,17 @@
 class Vis < Formula
-  desc "a vim like text editor"
+  desc "A vi-like editor based on Plan 9's structural regular expressions"
   homepage "https://github.com/martanne/vis"
-  url "https://github.com/martanne/vis/archive/v0.2.tar.gz"
-  version "0.2"
-  sha256 "3e5b81d760849c56ee378421e9ba0f653c641bf78e7594f71d85357be99a752d"
+  url "https://github.com/martanne/vis/archive/v0.3.tar.gz"
+  version "0.3"
+  sha256 "bed8ed32ef4f81bc4fd28e297ea8edc80027ac6923b9d3b5bd955d24899c7077"
 
+  depends_on "pkg-config" => :build
   depends_on "libtermkey"
-  depends_on "luarocks"
 
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    system "luarocks", "install", "lpeg"
   end
 
   test do

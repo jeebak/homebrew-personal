@@ -16,9 +16,7 @@ class SpaceNerdsInSpace < Formula
   depends_on "lua"
   depends_on "openssl"
   depends_on "sdl"
-  # This file started out as a copy of the wordwarvi Formula, so the depdencies
-  # below could probably be trimmed down. The a are dependencies are required
-  # for this Formula
+
   depends_on "gtk+"
   depends_on "pango"
   depends_on "glib"
@@ -39,7 +37,7 @@ class SpaceNerdsInSpace < Formula
   def install
     # Resolve cask dependencies :/
     system "/usr/local/bin/brew", "cask", "install", "openscad"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "DESTDIR=", "PREFIX=#{prefix}", "install"
     # bin.install "#{prefix}/games/snis"
   end
 

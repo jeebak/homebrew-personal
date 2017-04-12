@@ -8,7 +8,7 @@ class Editkit < Formula
   depends_on :x11
 
   def install
-    system "mkdir -p #{bin}"
+    mkdir_p "#{bin}"
     system "make -f Makefile.kit SHAREDIR=#{share} DESTDIR=#{prefix} BINDIR=#{bin} all"
     system "make -f Makefile.kit SHAREDIR=#{share} DESTDIR=#{prefix} BINDIR=#{bin} install"
   end

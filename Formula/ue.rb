@@ -9,7 +9,7 @@ class Ue < Formula
 
   def install
     # WIP, compiles but broken
-    system "gcc ue.c -o ue && strip ue && mv ue #{prefix}"
+    system "gcc ue.c -o ue && strip ue && mv ue #{prefix} && mv README #{prefix}"
     bin.install "#{prefix}/ue"
   end
 

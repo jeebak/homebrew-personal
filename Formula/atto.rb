@@ -5,8 +5,6 @@ class Atto < Formula
   url "https://github.com/hughbarney/atto", :using => GitDownloadStrategy
   version "current"
 
-  # depends_on "cmake" => :build
-
   def install
     system "make -f makefile && strip atto && mv atto #{prefix}"
     bin.install "#{prefix}/atto"

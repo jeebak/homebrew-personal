@@ -6,7 +6,7 @@ class E < Formula
   version "0.993"
 
   def install
-    system "make && strip e && mv e #{prefix}"
+    system "make && strip e && mv e #{prefix} && mv README #{prefix}"
     bin.install "#{prefix}/e"
   end
 

@@ -8,8 +8,7 @@ class Uemacs < Formula
     mkdir_p "#{bin}"
     mkdir_p "#{lib}"
     system "make", "install", "BINDIR=#{bin}", "LIBDIR=#{lib}"
-    # seems to bomb out when reading its .emacsrc file on osx but works fine under linuxbrew
-    # system "iconv -f ISO-8859-1 -t UTF-8 #{lib}/.emacsrc"
+    # seems to bomb out when reading the "store-macro" lines in .emacsrc file on osx but works fine under linuxbrew
   end
 
   test do

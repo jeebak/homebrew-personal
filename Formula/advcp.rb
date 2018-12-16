@@ -1,12 +1,13 @@
 class Advcp < Formula
   desc "'cp' and 'mv' utilities with progress bar patches"
+
   homepage "https://aur.archlinux.org/packages/advcp/"
-  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.25.tar.xz"
-  sha256 "31e67c057a5b32a582f26408c789e11c2e8d676593324849dcf5779296cdce87"
+  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.30.tar.xz"
+  sha256 "e831b3a86091496cdba720411f9748de81507798f6130adeaef872d206e1b057"
 
   patch do
-    url "https://aur.archlinux.org/cgit/aur.git/plain/advcpmv-8.25.patch?h=advcp"
-    sha256 "357034a0dca1a5f2e8fc3a0fabe0268c378192449c4094f690e3f900f7a5ae7f"
+    url "https://raw.githubusercontent.com/mrdrogdrog/advcpmv/master/advcpmv-0.8-8.30.patch"
+    sha256 "9954d975554f3c06b518d4d17c5247ef751fe8f29d692799e79c9386ab4a1c1b"
   end
 
   def install
@@ -16,7 +17,7 @@ class Advcp < Formula
     system "make", "install"
     # TODO: is there a way to build *only* cp and mv?
     system "find #{bin} -type f -not -name adv-cp -not -name adv-mv | xargs rm"
-    system "rm", "-rf", "#{info}"
+    system "rm", "-rf", "#{info}", "#{share}/locale"
     system "find #{man1} -type f -not -name adv-cp.1 -not -name adv-mv.1 | xargs rm"
   end
 

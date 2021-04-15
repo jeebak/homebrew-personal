@@ -7,7 +7,7 @@ class Advcp < Formula
 
   patch do
     url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.8-8.32.patch"
-    sha256 "6919835aac53c873267d199de8823e993d72870a5eb7b6caf566803a7f3f861e"
+    sha256 "294e54c2a13d648dd5298df55369fa1a51d8f9960c90c558f316468e54b9e747"
   end
 
   def install

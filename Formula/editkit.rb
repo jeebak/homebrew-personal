@@ -5,8 +5,6 @@ class Editkit < Formula
   sha256 "5548c3f5359848878aaf5430a515510017f924496fef245dcc9e9e0cc9bf6a3d"
   version "1.05"
 
-  depends_on :x11
-
   def install
     mkdir_p "#{bin}"
     system "make -f Makefile.kit SHAREDIR=#{share} DESTDIR=#{prefix} BINDIR=#{bin} all"

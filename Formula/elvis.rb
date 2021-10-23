@@ -4,8 +4,6 @@ class Elvis < Formula
   url "https://github.com/mbert/elvis/", :using => GitDownloadStrategy
   version "current"
 
-  depends_on :x11
-
   def install
     mkdir_p "#{man}/man1"
     system "./configure", "--prefix=#{prefix}"

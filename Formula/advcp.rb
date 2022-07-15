@@ -1,13 +1,13 @@
 class Advcp < Formula
   desc "'cp' and 'mv' utilities with progress bar patches"
 
-  homepage "https://aur.archlinux.org/packages/advcp/"
-  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.32.tar.xz"
-  sha256 "4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"
+  homepage "https://aur.archlinux.org/packages/advcpmv"
+  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz"
+  sha256 "61a1f410d78ba7e7f37a5a4f50e6d1320aca33375484a3255eddf17a38580423"
 
   patch do
-    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.8-8.32.patch"
-    sha256 "d57f4c74fc3f7a65636d308331679d68aef0276513ae0fcc5b85f3971a176708"
+    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.1.patch"
+    sha256 "97b91fdafcff85e5b79604fcf720ece5675fcf0dd76dbdd084f19cb7b482aee4"
   end
 
   def install

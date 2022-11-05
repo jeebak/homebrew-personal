@@ -8,7 +8,8 @@ class Gita < Formula
   license "MIT"
   head "https://github.com/nosarthur/gita.git", branch: "master"
 
-  depends_on "python@3.10"
+  # https://github.com/nosarthur/gita/issues/91
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

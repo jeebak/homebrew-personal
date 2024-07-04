@@ -1,13 +1,13 @@
 class Advcpmv < Formula
-  desc "'cp' and 'mv' utilities with progress bar patches"
+  desc "A patch for GNU Core Utilities cp, mv to add progress bars"
 
-  homepage "https://aur.archlinux.org/packages/advcpmv"
-  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz"
-  sha256 "61a1f410d78ba7e7f37a5a4f50e6d1320aca33375484a3255eddf17a38580423"
+  homepage "https://github.com/jarun/advcpmv"
+  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-9.5.tar.xz"
+  sha256 "cd328edeac92f6a665de9f323c93b712af1858bc2e0d88f3f7100469470a1b8a"
 
   patch do
-    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.1.patch"
-    sha256 "97b91fdafcff85e5b79604fcf720ece5675fcf0dd76dbdd084f19cb7b482aee4"
+    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.5.patch"
+    sha256 "2d17dbe2179994050a89797f842fc7828a9e18cc42b7caee058654adbcd21fe6"
   end
 
   def install

@@ -1,4 +1,4 @@
-class Advcp < Formula
+class Advcpmv < Formula
   desc "'cp' and 'mv' utilities with progress bar patches"
 
   homepage "https://aur.archlinux.org/packages/advcpmv"

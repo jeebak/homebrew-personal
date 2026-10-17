@@ -2,27 +2,32 @@ class Advcpmv < Formula
   desc "A patch for GNU Core Utilities cp, mv to add progress bars"
 
   homepage "https://github.com/jarun/advcpmv"
-  url "ftp://ftp.gnu.org/gnu/coreutils/coreutils-9.5.tar.xz"
-  sha256 "cd328edeac92f6a665de9f323c93b712af1858bc2e0d88f3f7100469470a1b8a"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz"
+  sha256 "394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3"
 
   patch do
-    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.5.patch"
-    sha256 "2d17dbe2179994050a89797f842fc7828a9e18cc42b7caee058654adbcd21fe6"
+    url "https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.11.patch"
+    sha256 "54247b572f015ea7750dce1ac8e45da07736716d62bfc3f26735916cb1c0426f"
   end
 
   def install
-    # compare to: Library/Formula/coreutils.rb
-    # system "./bootstrap"
     system "./configure", "--prefix=#{prefix}", "--program-prefix=adv-"
-    system "make", "install"
-    # TODO: is there a way to build *only* cp and mv?
-    system "find #{bin} -type f -not -name adv-cp -not -name adv-mv | xargs rm"
-    system "rm", "-rf", "#{info}", "#{share}/locale"
-    system "find #{man1} -type f -not -name adv-cp.1 -not -name adv-mv.1 | xargs rm"
+
+    # Build only cp and mv: naming src/cp and src/mv directly skips
+    # BUILT_SOURCES (generated gnulib headers), so depend on them via a
+    # throwaway makefile.
+    (buildpath/"built-sources.mk").write "cpmv-deps: $(BUILT_SOURCES)\n"
+    system "make", "-f", "Makefile", "-f", "built-sources.mk",
+           "cpmv-deps", "src/cp", "src/mv", "man/cp.1", "man/mv.1"
+
+    bin.install "src/cp" => "adv-cp"
+    bin.install "src/mv" => "adv-mv"
+    man1.install "man/cp.1" => "adv-cp.1"
+    man1.install "man/mv.1" => "adv-mv.1"
   end
 
   test do
-    system "#{bin}/adv-cp --help | grep -- '--progress'"
-    system "#{bin}/adv-mv --help | grep -- '--progress'"
+    assert_match "--progress-bar", shell_output("#{bin}/adv-cp --help")
+    assert_match "--progress-bar", shell_output("#{bin}/adv-mv --help")
   end
 end
